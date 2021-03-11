@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace Swagger.Controllers
         /// </summary>
         /// <response code="200">Returns the weather forecasts for the next 5 days</response>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
@@ -46,6 +48,7 @@ namespace Swagger.Controllers
         /// <param name="day"></param>
         /// <response code="200">The weather forecast for the day</response>
         [HttpGet("day")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public WeatherForecast ForDay(DayOfWeek day)
         {
             var rng = new Random();
